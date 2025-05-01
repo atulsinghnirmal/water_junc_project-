@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Water Distribution</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px;
+      background-color: #007BFF;
+      color: white;
+      font-size: 2em;
+    }
+
+    .section {
+      display: none;
+      padding: 40px;
+      text-align: center;
+    }
+
+    #main {
+      display: block;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .map-img {
+      width: 70%;
+      max-width: 800px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .area-buttons {
+      margin-top: 30px;
+    }
+
+    .area-buttons button {
+      margin: 10px;
+      padding: 12px 25px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .area-buttons button:hover {
+      background-color: #0056b3;
+    }
+
+    .back-button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #6c757d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background-color: #343a40;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Water Distribution</header>
+
+  <!-- Main Map Section -->
+  <div id="main">
+    <h2>Sample Water Distribution Map</h2>
+    <img src="water1/sample.jpg" alt="Sample Map" class="map-img">
+
+
+    <div class="area-buttons">
+      <button onclick="showSection('area1')">Block</button>
+      <button onclick="showSection('area2')">Junction</button>
+      <button onclick="showSection('area3')">Pumps</button>
+      <button onclick="showSection('area4')">Reservior</button>
+    </div>
+  </div>
+
+ <!-- Area 1 -->
+<div id="area1" class="section">
+  <h2>Area 1 - Water Report</h2>
+  <img src="water1/b1.png" alt="Sample Map" class="map-img">
+  <br><br>
+  <button onclick="openInSheets('https://docs.google.com/spreadsheets/d/1X4V-Napoq1DMKa4KNGLTTcCx9kOy_4OqZYfJJxH9GN4/edit?gid=439460801#gid=439460801/view')">Open</button>
+  <button onclick="openExcel('')">Download</button>
+  <br><br>
+  <button class="back-button" onclick="goBack()">Back to Map</button>
+</div>
+
+<!-- Area 2 -->
+<div id="area2" class="section">
+  <h2>Area 2 - Water Report</h2>
+  <img src="water1/j1.png" alt="Sample Map" class="map-img">
+  <br><br>
+  <button onclick="openInSheets('https://docs.google.com/spreadsheets/d/1X4V-Napoq1DMKa4KNGLTTcCx9kOy_4OqZYfJJxH9GN4/edit?gid=628144314#gid=628144314/view')">open</button>
+  <button onclick="openExcel('data2.xlsx')">download</button>
+  <br><br>
+  <button class="back-button" onclick="goBack()">Back to Map</button>
+</div>
+
+<!-- Area 3 -->
+<div id="area3" class="section">
+  <h2>Area 3 - Water Report</h2>
+  <img src="water1/p1.png" alt="Sample Map" class="map-img">
+  <br><br>
+  <button onclick="openInSheets('https://docs.google.com/spreadsheets/d/1X4V-Napoq1DMKa4KNGLTTcCx9kOy_4OqZYfJJxH9GN4/edit?gid=1940860265#gid=1940860265/view')">open</button>
+  <button onclick="openExcel('data3.xlsx')">download</button>
+  <br><br>
+  <button class="back-button" onclick="goBack()">Back to Map</button>
+</div>
+
+<!-- Area 4 -->
+<div id="area4" class="section">
+  <h2>Area 4 - Water Report</h2>
+  <img src="water1/r1.png" alt="Sample Map" class="map-img">
+  <br><br>
+  <button onclick="openInSheets('https://docs.google.com/spreadsheets/d/1X4V-Napoq1DMKa4KNGLTTcCx9kOy_4OqZYfJJxH9GN4/edit?gid=2039452354#gid=2039452354/view')">open</button>
+  <button onclick="openExcel('data4.xlsx')">download</button>
+  <br><br>
+  <button class="back-button" onclick="goBack()">Back to Map</button>
+</div>
+
+<script>
+  function openExcel(fileName) {
+    window.open(fileName, '_blank');
+  }
+
+  function openInSheets(sheetURL) {
+    window.open(sheetURL, '_blank');
+  }
+
+  function showSection(id) {
+    document.getElementById("main").style.display = "none";
+    document.querySelectorAll(".section").forEach(section => {
+      section.style.display = "none";
+    });
+    document.getElementById(id).style.display = "block";
+  }
+
+  function goBack() {
+    document.querySelectorAll(".section").forEach(section => {
+      section.style.display = "none";
+    });
+    document.getElementById("main").style.display = "block";
+  }
+</script>
+
+
+  <script>
+    function showSection(id) {
+      document.getElementById("main").style.display = "none";
+      document.querySelectorAll(".section").forEach(section => {
+        section.style.display = "none";
+      });
+      document.getElementById(id).style.display = "block";
+    }
+
+    function goBack() {
+      document.querySelectorAll(".section").forEach(section => {
+        section.style.display = "none";
+      });
+      document.getElementById("main").style.display = "block";
+    }
+
+    function openExcel(fileName) {
+      window.open(fileName, '_blank');
+    }
+  </script>
+
+  <!-- Footer -->
+    <footer style="text-align: center; padding: 20px; background-color: #eaeaea; color: #555; font-size: 14px;">
+      © 2025 Water Distribution System | Made by AXSN
+    </footer>
+
+</body>
+</html>
